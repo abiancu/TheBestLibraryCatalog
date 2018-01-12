@@ -16,11 +16,12 @@ namespace TheBestLibraryCatalog
             Console.WriteLine("Enter a file name");
             bookCatalog.FileName = Console.ReadLine();
             bookCatalog.MenuDisplay();
+           
+                    
 
             
 
-            Console.ReadLine();
-            
+            Console.ReadLine();            
 
            
 
@@ -28,10 +29,7 @@ namespace TheBestLibraryCatalog
 
         public class CardCatalog
         {
-            private string _filename;         
-            
-
-            
+            private string _filename;
 
             public string FileName
             {
@@ -44,6 +42,8 @@ namespace TheBestLibraryCatalog
                     _filename = value;
                 }
             }
+            
+
             public void MenuDisplay()
             {
                 Console.WriteLine("1. List All Books");
@@ -52,32 +52,54 @@ namespace TheBestLibraryCatalog
                 Console.WriteLine("What would you like to do?");
                 int userInput = Convert.ToInt32(Console.ReadLine());
 
-                MenuDisplayLogic(userInput); 
                 
+                MenuDisplayLogic(userInput);
+                
+               
                 
             }
 
-            private static void MenuDisplayLogic(int userInput)
+            public static void MenuDisplayLogic(int userInput)
             {
-                
-                if (userInput == 1)
-                {
-                    Console.WriteLine("You've enterd 1");
+                    if (userInput == 1)
+                    {
+                        Console.WriteLine($"you've entered {userInput}");
 
-                    //run method ListAllBooks()
-                    // call MenuDisplay at the end of choice 1
-                }
-                if (userInput == 2)
-                {
-                    Console.WriteLine("you've enterd 2");
-                    // run method AddABook()
-                    // call MeneDisplay at the en of chocice 2
-                }
-                if (userInput == 3)
-                {
-                    Console.WriteLine("you've enterd 3");
-                    // run method SaveAndExit()
-                }
+                        // run method ListAllbook()
+                        CardCatalog.ListAllBooks();
+                        // call MenuDisplay at the end of choice 1
+
+
+                    }
+                    if (userInput == 2)
+                    {
+                        Console.WriteLine($"you've entered {userInput}");
+                        // run method AddABook()
+                        CardCatalog.AddABook();
+
+                        // call MeneDisplay at the en of chocice 2
+                    }
+                    if (userInput == 3)
+                    {
+                        Console.WriteLine($"you've entered {userInput}");
+                        // run method SaveAndExit()
+                        CardCatalog.SaveAndExit();
+                    }
+                
+            }
+            public static void ListAllBooks()
+            {
+                Console.Write("List All Books"); // here enter the book objects
+            }
+
+            public static void AddABook()
+            {
+                Console.Write("Add A Book");
+            }
+
+            public static void SaveAndExit()
+            {
+                Console.Write("Save and Exit");
             }
         }
     }
