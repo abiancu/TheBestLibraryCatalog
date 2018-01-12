@@ -10,21 +10,11 @@ namespace TheBestLibraryCatalog
     {
         static void Main(string[] args)
         {
-
-
             CardCatalog bookCatalog = new CardCatalog();
             Console.WriteLine("Enter a file name");
             bookCatalog.FileName = Console.ReadLine();
-            bookCatalog.MenuDisplay();
-           
-                    
-
-            
-
-            Console.ReadLine();            
-
-           
-
+            CardCatalog.MenuDisplay();
+            Console.ReadLine();
         }
 
         public class CardCatalog
@@ -42,21 +32,17 @@ namespace TheBestLibraryCatalog
                     _filename = value;
                 }
             }
-            
 
-            public void MenuDisplay()
+            private static List<Book> listOfBooks = new List<Book> { };
+
+            public static void MenuDisplay()
             {
                 Console.WriteLine("1. List All Books");
                 Console.WriteLine("2. Add a Book");
                 Console.WriteLine("3. Save and Exit");
                 Console.WriteLine("What would you like to do?");
                 int userInput = Convert.ToInt32(Console.ReadLine());
-
-                
-                MenuDisplayLogic(userInput);
-                
-               
-                
+                MenuDisplayLogic(userInput); 
             }
 
             public static void MenuDisplayLogic(int userInput)
@@ -68,8 +54,6 @@ namespace TheBestLibraryCatalog
                         // run method ListAllbook()
                         CardCatalog.ListAllBooks();
                         // call MenuDisplay at the end of choice 1
-
-
                     }
                     if (userInput == 2)
                     {
@@ -89,12 +73,34 @@ namespace TheBestLibraryCatalog
             }
             public static void ListAllBooks()
             {
-                Console.Write("List All Books"); // here enter the book objects
+                Console.Write("List All Books \n");
+                Console.WriteLine("\n");
+                MenuDisplay();
             }
 
             public static void AddABook()
             {
-                Console.Write("Add A Book");
+               Book aBook = new Book();
+
+               Console.WriteLine("What's the name of the book?");
+               aBook.Title = Console.ReadLine();
+
+               Console.WriteLine("Who's the author?");
+               aBook.Author = Console.ReadLine();
+
+               Console.WriteLine("What's the genre?");
+               aBook.Genre = Console.ReadLine();
+
+               Console.WriteLine("How many pages is the book?");
+               aBook.NumberOfPages = Convert.ToInt32(Console.ReadLine());
+
+               Console.WriteLine("When was it publised?");
+               aBook.YearPublished = Convert.ToInt32(Console.ReadLine());
+
+               listOfBooks.Add(aBook);
+               Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
+               Console.WriteLine("\n");
+               MenuDisplay();
             }
 
             public static void SaveAndExit()
@@ -102,5 +108,23 @@ namespace TheBestLibraryCatalog
                 Console.Write("Save and Exit");
             }
         }
+
+        public class Book
+        {
+            private string _title;
+            public string Title { get { return _title; } set { _title = value; } }
+
+            private string _author;
+            public string Author { get { return _author; } set { _author = value; } }
+
+            private string _genre;
+            public string Genre { get { return _genre; } set { _genre = value; } }
+
+            private int _numberOfPages;
+            public int NumberOfPages { get { return _numberOfPages; } set { _numberOfPages = value; } }
+
+            private int _yearPublished;
+            public int YearPublished { get { return _yearPublished; } set { _yearPublished = value; } }
+      }
     }
 }
