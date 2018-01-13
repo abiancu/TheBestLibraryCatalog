@@ -10,21 +10,22 @@ namespace TheBestLibraryCatalog
     {
         static void Main(string[] args)
         {
-
-
             CardCatalog bookCatalog = new CardCatalog();
             Console.WriteLine("Enter a file name");
             bookCatalog.FileName = Console.ReadLine();
-            bookCatalog.MenuDisplay();
-           
-                    
+            CardCatalog.MenuDisplay();
+<<<<<<< HEAD
 
-            
 
-            Console.ReadLine();            
 
-           
 
+            Console.ReadLine();
+
+
+
+=======
+            Console.ReadLine();
+>>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
         }
 
         public class CardCatalog
@@ -42,25 +43,40 @@ namespace TheBestLibraryCatalog
                     _filename = value;
                 }
             }
+<<<<<<< HEAD
+
             
 
-            public void MenuDisplay()
+=======
+
+            private static List<Book> listOfBooks = new List<Book> { };
+
+>>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
+            public static void MenuDisplay()
             {
                 Console.WriteLine("1. List All Books");
                 Console.WriteLine("2. Add a Book");
                 Console.WriteLine("3. Save and Exit");
                 Console.WriteLine("What would you like to do?");
                 int userInput = Convert.ToInt32(Console.ReadLine());
-
+<<<<<<< HEAD
                 
+                    
+
+
                 MenuDisplayLogic(userInput);
-                
-               
-                
+=======
+                MenuDisplayLogic(userInput); 
+>>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
             }
-
+            
+            
+            
+           
             public static void MenuDisplayLogic(int userInput)
             {
+                for (var i = 0; i < userInput; i++)
+                {
                     if (userInput == 1)
                     {
                         Console.WriteLine($"you've entered {userInput}");
@@ -68,39 +84,124 @@ namespace TheBestLibraryCatalog
                         // run method ListAllbook()
                         CardCatalog.ListAllBooks();
                         // call MenuDisplay at the end of choice 1
+<<<<<<< HEAD
+                        MenuDisplay();
 
-
+=======
+>>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
                     }
+
                     if (userInput == 2)
                     {
                         Console.WriteLine($"you've entered {userInput}");
                         // run method AddABook()
                         CardCatalog.AddABook();
+                        MenuDisplay();
 
                         // call MeneDisplay at the en of chocice 2
                     }
                     if (userInput == 3)
                     {
-                        Console.WriteLine($"you've entered {userInput}");
-                        // run method SaveAndExit()
+                        Console.WriteLine($"you've entered {userInput}, Are you sure you want to exit?");                    // run method SaveAndExit()
                         CardCatalog.SaveAndExit();
+                        MenuDisplay();
+
                     }
-                
+                }
             }
+
+
             public static void ListAllBooks()
             {
-                Console.Write("List All Books"); // here enter the book objects
+                Console.Write("List All Books \n");
+                Console.WriteLine("\n");
+                MenuDisplay();
+<<<<<<< HEAD
+
+=======
+>>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
             }
 
             public static void AddABook()
             {
-                Console.Write("Add A Book");
+<<<<<<< HEAD
+                //Book aBook = new Book();
+
+                //Console.WriteLine("What's the name of the book?");
+                //aBook.Title = Console.ReadLine();
+
+                //Console.WriteLine("Who's the author?");
+                //aBook.Author = Console.ReadLine();
+
+                //Console.WriteLine("What's the genre?");
+                //aBook.Genre = Console.ReadLine();
+
+                //Console.WriteLine("How many pages is the book?");
+                //aBook.NumberOfPages = Convert.ToInt32(Console.ReadLine());
+
+                //Console.WriteLine("When was it publised?");
+                //aBook.YearPublished = Convert.ToInt32(Console.ReadLine());
+
+                //listOfBooks.Add(aBook);
+                //Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
+                //Console.WriteLine("\n");
+                MenuDisplay();
+=======
+               Book aBook = new Book();
+
+               Console.WriteLine("What's the name of the book?");
+               aBook.Title = Console.ReadLine();
+
+               Console.WriteLine("Who's the author?");
+               aBook.Author = Console.ReadLine();
+
+               Console.WriteLine("What's the genre?");
+               aBook.Genre = Console.ReadLine();
+
+               Console.WriteLine("How many pages is the book?");
+               aBook.NumberOfPages = Convert.ToInt32(Console.ReadLine());
+
+               Console.WriteLine("When was it publised?");
+               aBook.YearPublished = Convert.ToInt32(Console.ReadLine());
+
+               listOfBooks.Add(aBook);
+               Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
+               Console.WriteLine("\n");
+               MenuDisplay();
+>>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
             }
 
             public static void SaveAndExit()
             {
-                Console.Write("Save and Exit");
+                Console.WriteLine("Save and Exit");
             }
+
+
+            
         }
+<<<<<<< HEAD
+        
+=======
+
+        public class Book
+        {
+            private string _title;
+            public string Title { get { return _title; } set { _title = value; } }
+
+            private string _author;
+            public string Author { get { return _author; } set { _author = value; } }
+
+            private string _genre;
+            public string Genre { get { return _genre; } set { _genre = value; } }
+
+            private int _numberOfPages;
+            public int NumberOfPages { get { return _numberOfPages; } set { _numberOfPages = value; } }
+
+            private int _yearPublished;
+            public int YearPublished { get { return _yearPublished; } set { _yearPublished = value; } }
+      }
+>>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
     }
+    
+    
 }
