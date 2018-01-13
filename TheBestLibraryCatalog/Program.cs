@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace TheBestLibraryCatalog
             CardCatalog bookCatalog = new CardCatalog();
             Console.WriteLine("Enter a file name");
             bookCatalog.FileName = Console.ReadLine();
-            CardCatalog.MenuDisplay();
+            bookCatalog.MenuDisplay();
             Console.ReadLine();
         }
 
@@ -25,7 +26,7 @@ namespace TheBestLibraryCatalog
             {
                 get
                 {
-                    return "_filename";
+                    return _filename;
                 }
                 set
                 {
@@ -33,10 +34,11 @@ namespace TheBestLibraryCatalog
                 }
             }
 
-            private static List<Book> listOfBooks = new List<Book> { };
+            private List<Book> listOfBooks = new List<Book> { };
 
-            public static void MenuDisplay()
+            public void MenuDisplay()
             {
+                Console.WriteLine("\n");
                 Console.WriteLine("1. List All Books");
                 Console.WriteLine("2. Add a Book");
                 Console.WriteLine("3. Save and Exit");
@@ -45,40 +47,41 @@ namespace TheBestLibraryCatalog
                 MenuDisplayLogic(userInput); 
             }
 
-            public static void MenuDisplayLogic(int userInput)
+            public void MenuDisplayLogic(int userInput)
             {
                     if (userInput == 1)
                     {
                         Console.WriteLine($"you've entered {userInput}");
 
                         // run method ListAllbook()
-                        CardCatalog.ListAllBooks();
+                        ListAllBooks();
                         // call MenuDisplay at the end of choice 1
                     }
                     if (userInput == 2)
                     {
                         Console.WriteLine($"you've entered {userInput}");
                         // run method AddABook()
-                        CardCatalog.AddABook();
+                        AddABook();
 
                         // call MeneDisplay at the en of chocice 2
                     }
                     if (userInput == 3)
                     {
                         Console.WriteLine($"you've entered {userInput}");
-                        // run method SaveAndExit()
-                        CardCatalog.SaveAndExit();
+                        // run method Save()
+                        Save();
                     }
                 
             }
-            public static void ListAllBooks()
+
+            public void ListAllBooks()
             {
                 Console.Write("List All Books \n");
                 Console.WriteLine("\n");
                 MenuDisplay();
             }
 
-            public static void AddABook()
+            public void AddABook()
             {
                Book aBook = new Book();
 
@@ -99,13 +102,22 @@ namespace TheBestLibraryCatalog
 
                listOfBooks.Add(aBook);
                Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
-               Console.WriteLine("\n");
                MenuDisplay();
             }
 
-            public static void SaveAndExit()
+            public void Save()
             {
-                Console.Write("Save and Exit");
+               string filePath = @"C:\Users\Andrey\Downloads\" + FileName + ".txt";
+
+               using (TextWriter tw = new StreamWriter(filePath))
+               {
+                  foreach (var book in listOfBooks)
+                  {
+                     tw.WriteLine(string.Format("Title: {0}\r\n Author: {1}\r\n Genre: {2}\r\n Number of Pages: {3}\r\n Year Published: {4}\r\n", book.Title, book.Author, book.Genre, book.NumberOfPages, book.YearPublished));
+                     tw.WriteLine(Environment.NewLine);
+                  }
+               }
+               
             }
         }
 
