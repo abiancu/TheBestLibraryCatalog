@@ -14,7 +14,7 @@ namespace TheBestLibraryCatalog
             Console.WriteLine("Enter a file name");
             bookCatalog.FileName = Console.ReadLine();
             CardCatalog.MenuDisplay();
-<<<<<<< HEAD
+
 
 
 
@@ -23,9 +23,8 @@ namespace TheBestLibraryCatalog
 
 
 
-=======
             Console.ReadLine();
->>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
+
         }
 
         public class CardCatalog
@@ -43,31 +42,31 @@ namespace TheBestLibraryCatalog
                     _filename = value;
                 }
             }
-<<<<<<< HEAD
+
+
+
+
+
+
+            public static List<Book> listOfBooks = new List<Book> { };
+              
 
             
 
-=======
 
-            private static List<Book> listOfBooks = new List<Book> { };
-
->>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
             public static void MenuDisplay()
             {
                 Console.WriteLine("1. List All Books");
                 Console.WriteLine("2. Add a Book");
                 Console.WriteLine("3. Save and Exit");
                 Console.WriteLine("What would you like to do?");
-                int userInput = Convert.ToInt32(Console.ReadLine());
-<<<<<<< HEAD
-                
+                int userInput = Convert.ToInt32(Console.ReadLine());              
                     
 
 
                 MenuDisplayLogic(userInput);
-=======
-                MenuDisplayLogic(userInput); 
->>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
+                 
+
             }
             
             
@@ -82,13 +81,13 @@ namespace TheBestLibraryCatalog
                         Console.WriteLine($"you've entered {userInput}");
 
                         // run method ListAllbook()
-                        CardCatalog.ListAllBooks();
-                        // call MenuDisplay at the end of choice 1
-<<<<<<< HEAD
+
+                        
+                       // call MenuDisplay at the end of choice 
+
                         MenuDisplay();
 
-=======
->>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
+
                     }
 
                     if (userInput == 2)
@@ -102,7 +101,9 @@ namespace TheBestLibraryCatalog
                     }
                     if (userInput == 3)
                     {
-                        Console.WriteLine($"you've entered {userInput}, Are you sure you want to exit?");                    // run method SaveAndExit()
+                        Console.WriteLine($"you've entered {userInput}, Are you sure you want to exit?");                   
+                        
+                        // run method SaveAndExit()
                         CardCatalog.SaveAndExit();
                         MenuDisplay();
 
@@ -114,61 +115,62 @@ namespace TheBestLibraryCatalog
             public static void ListAllBooks()
             {
                 Console.Write("List All Books \n");
-                Console.WriteLine("\n");
-                MenuDisplay();
-<<<<<<< HEAD
+                Console.WriteLine("\n");                
 
-=======
->>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
+               
+
+
+
             }
 
             public static void AddABook()
             {
-<<<<<<< HEAD
-                //Book aBook = new Book();
 
-                //Console.WriteLine("What's the name of the book?");
-                //aBook.Title = Console.ReadLine();
+                    Book aBook = new Book();
 
-                //Console.WriteLine("Who's the author?");
-                //aBook.Author = Console.ReadLine();
+                    Console.WriteLine("What's the name of the book?");
+                    aBook.Title = Console.ReadLine();
 
-                //Console.WriteLine("What's the genre?");
-                //aBook.Genre = Console.ReadLine();
+                    Console.WriteLine("Who's the author?");
+                    aBook.Author = Console.ReadLine();
 
-                //Console.WriteLine("How many pages is the book?");
-                //aBook.NumberOfPages = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("What's the genre?");
+                    aBook.Genre = Console.ReadLine();
 
-                //Console.WriteLine("When was it publised?");
-                //aBook.YearPublished = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("How many pages is the book?");
+                    aBook.NumberOfPages = Convert.ToInt32(Console.ReadLine());
 
-                //listOfBooks.Add(aBook);
-                //Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
-                //Console.WriteLine("\n");
+                    Console.WriteLine("When was it publised?");
+                    aBook.YearPublished = Convert.ToInt32(Console.ReadLine());
+
+                    listOfBooks.Add(aBook);
+                    Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
+                    Console.WriteLine("\n");
+                    MenuDisplay();
+
+
+
+                    Console.WriteLine("What's the name of the book?");
+                    aBook.Title = Console.ReadLine();
+
+                    Console.WriteLine("Who's the author?");
+                    aBook.Author = Console.ReadLine();
+
+                    Console.WriteLine("What's the genre?");
+                    aBook.Genre = Console.ReadLine();
+
+                    Console.WriteLine("How many pages is the book?");
+                    aBook.NumberOfPages = Convert.ToInt32(Console.ReadLine());
+
+                    Console.WriteLine("When was it publised?");
+                    aBook.YearPublished = Convert.ToInt32(Console.ReadLine());
+
+                    listOfBooks.Add(aBook);
+                    Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
+                    Console.WriteLine("\n");
+                
                 MenuDisplay();
-=======
-               Book aBook = new Book();
 
-               Console.WriteLine("What's the name of the book?");
-               aBook.Title = Console.ReadLine();
-
-               Console.WriteLine("Who's the author?");
-               aBook.Author = Console.ReadLine();
-
-               Console.WriteLine("What's the genre?");
-               aBook.Genre = Console.ReadLine();
-
-               Console.WriteLine("How many pages is the book?");
-               aBook.NumberOfPages = Convert.ToInt32(Console.ReadLine());
-
-               Console.WriteLine("When was it publised?");
-               aBook.YearPublished = Convert.ToInt32(Console.ReadLine());
-
-               listOfBooks.Add(aBook);
-               Console.WriteLine("{0} has been added to the card catalog", aBook.Title);
-               Console.WriteLine("\n");
-               MenuDisplay();
->>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
             }
 
             public static void SaveAndExit()
@@ -179,10 +181,7 @@ namespace TheBestLibraryCatalog
 
             
         }
-<<<<<<< HEAD
         
-=======
-
         public class Book
         {
             private string _title;
@@ -200,7 +199,7 @@ namespace TheBestLibraryCatalog
             private int _yearPublished;
             public int YearPublished { get { return _yearPublished; } set { _yearPublished = value; } }
       }
->>>>>>> eaf4309c3b5b072d6387e3a1e46a093e1cb44d5d
+
     }
     
     
